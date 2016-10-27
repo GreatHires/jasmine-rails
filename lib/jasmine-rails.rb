@@ -51,7 +51,7 @@ module JasmineRails
     # * spec helpers
     # * spec_files
     def spec_files
-      spec_files = ENV['SPEC_FILES'] ? [ ENV['SPEC_FILES'] ] : jasmine_config['spec_files']
+      spec_files = !ENV['SPEC_FILES'].blank? ? [ ENV['SPEC_FILES'] ] : jasmine_config['spec_files']
       files = []
       files += filter_files src_dir, jasmine_config['src_files']
       spec_dir.each do |dir|
